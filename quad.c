@@ -33,6 +33,7 @@ int findroots(float a, float b, float c, struct complex *r1,struct complex *r2)
 int main()
 {
     /* Write code to get x,y,z */
+    float x,y,z;
     struct complex r1,r2;
     int retval = findroots(x,y,z,&r1,&r2)
     switch(retval)
