@@ -1,7 +1,9 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
-struct complex{
+struct complex
+{
     float real;
     float imag;
 };
@@ -12,33 +14,50 @@ struct complex{
    2- if roots are complex.
 */
 int findroots(float a, float b, float c, struct complex *r1,struct complex *r2)
-{
+   {
     float d=b*b-4*a*c;
-    if(d==0){
+    if(d==0)
+    {
             r1->real=r2->real= -b/(2*a);
             r1->imag=r2->imag=0;
             return 0;
     }
-    else if (d >0) {
-        
+    else if(d>0)
+    { r1->real=(-b+sqrt(d))/(2*a);
+      r1->imag=0;
+      r2->real=(-b-sqrt(d))/(2*a);
+      r2->imag=0;   
         return 1;
-    }
-    else {
-        
+    }  
+    else
+    {
+        r1->real=r2->real=-b/(2*a);
+        r1->imag=r2->real=sqrt(-d)/(2*a);
         return 2;
     }
+   }
+void getvalues(float *a,float *b, float *c)
+{ 
+    printf("enter values of coefficients a,b and c:");
+    scanf("%f%f%f",&a,&b,&c);
 }
 
 
 int main()
 {
-    /* Write code to get x,y,z */
     float x,y,z;
     struct complex r1,r2;
-    int retval = findroots(x,y,z,&r1,&r2)
+    getvalues(&x,&y,&z);
+    int retval = findroots(x,y,z,&r1,&r2);
     switch(retval)
     {
-    case 0:
-        /* your code */
+    case 0: printf("roots are real and equal:%fand%f",r1.real,r2.real);
+           break;
+    case 1: printf("roots are real and distinct:%fand%f",r1.real,r2.real);
+           break;
+    case 2: printf("roots are imaginagry:%f+%fi and%f-%fi",r1.real,r1.imag,r2.real,r2.imag);
+            break;
     }
+    return 0;
+    
 }
