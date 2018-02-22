@@ -1,0 +1,27 @@
+#include<stdio.h>
+/*to compute the largest of three numbers*/
+float largest(float x,float y,float z)
+{
+float l;
+if((x>y)&&(x>z))
+l=x;
+else if((y>x)&&(y>z))
+l=y;
+else
+l=z;
+return l;
+}
+/*to read the three numbers*/
+void getvalues(float *x,float *y,float *z)
+{
+    printf("enter 3 numbers:");
+    scanf("%f%f%f",&a,&b,&c);
+}
+int main()
+{
+float a,b,c,l;
+getvalues(&a,&b,&c);
+l=largest(a,b,c);
+printf("the largest number is %f",l);
+return 0;
+}
