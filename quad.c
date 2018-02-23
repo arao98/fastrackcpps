@@ -32,14 +32,14 @@ int findroots(float a, float b, float c, struct complex *r1,struct complex *r2)
     else
     {
         r1->real=r2->real=-b/(2*a);
-        r1->imag=r2->real=sqrt(-d)/(2*a);
+        r1->imag=r2->imag=sqrt(-d)/(2*a);
         return 2;
     }
    }
 void getvalues(float *a,float *b, float *c)
 { 
     printf("enter values of coefficients a,b and c:");
-    scanf("%f%f%f",&a,&b,&c);
+    scanf("%f%f%f",a,b,c);
 }
 
 
