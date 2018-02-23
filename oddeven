@@ -19,4 +19,5 @@ int main()
     int n;
     entern(&n);
     disp_oddeven(n);
+    return 0;
 }
