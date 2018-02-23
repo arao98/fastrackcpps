@@ -1,0 +1,22 @@
+#include<stdio.h>
+void disp_oddeven(int pn)
+{
+   int i;
+   printf("\nfirst %d even numbers:",pn);
+   for(i=0;i<2*pn;i+=2)
+    printf("%d\t",i);
+   printf("\nfirst %d odd numbers:",pn);
+   for(i=1;i<2*pn;i+=2)
+    printf("%d\t",i);
+}
+void entern(int *pn)
+{
+    printf("\nenter n:");
+    scanf("%d",pn);
+}
+int main()
+{
+    int n;
+    entern(&n);
+    disp_oddeven(n);
+}
