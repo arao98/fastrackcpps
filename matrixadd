@@ -1,0 +1,39 @@
+#include<stdio.h>
+int matrix_add(int *a,int *b,int i)
+{
+    int s;
+    s=a[i]+b[i];
+    return s;
+}
+void enter_mat(int *a,int pn)
+{
+    int i;
+    printf("\nenter array :");
+    for(i=0;i<pn;i++)
+    {
+        printf("\nenter element:%d",i);
+        scanf("%d",&a[i]);
+    }
+}
+void disp_mat(int *a,int *b,int *c,int pn)
+{
+   int i;
+    printf("\nx\ty\tsum:");
+    for(i=0;i<pn;i++)
+    {
+        printf("\n%d\t%d\t%d",a[i],b[i],c[i]);
+    }
+
+}
+int main()
+{
+    int j,n,x[15],y[15],sum[15];
+    printf("\nenter number of array elements:");
+    scanf("%d",&n);
+    enter_mat(&x,n);
+    enter_mat(&y,n);
+    for(j=0;j<n;j++)
+        sum[j]=matrix_add(&x,&y,j);
+    disp_mat(&x,&y,&sum,n);
+    return 0;
+}
