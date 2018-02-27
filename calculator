@@ -1,0 +1,46 @@
+#include <stdio.h>
+void inputval(float *a,float *b)
+{
+    printf("enter first value:");
+    scanf("%f",a);
+    printf("enter second value:");
+    scanf("%f",b);
+}
+int ent_choice()
+{
+    int choice;
+    printf("operator:\n1 for addition\n2 for subtraction\n3 for multiplication\n4 for division\n");
+    printf("enter your choice:");
+    scanf("%d",&choice);
+    return choice;
+}
+float calc(float *a,float *b,int choice)
+{
+    int ans;
+    switch(choice)
+    {
+        case 1: ans=a+b;
+        break;
+        case 2: ans=a-b;
+        break;
+        case 3: ans=a*b;
+        break;
+        case 4: ans=a/b;
+        break;
+    }
+    return ans;
+}
+void disp(float ans)
+{
+    printf("the answer is:%f",ans);
+}
+int main()
+{
+    float x,y,answer;
+    int ch;
+    inputval(&x,&y);
+    ch=ent_choice();
+    answer=calc(&x,&y,ch);
+    disp(answer);
+    return 0;
+}
