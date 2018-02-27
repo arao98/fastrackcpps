@@ -16,7 +16,7 @@ int ent_choice()
 }
 float calc(float *a,float *b,int choice)
 {
-    int ans;
+    float ans;
     switch(choice)
     {
         case 1: ans=a+b;
