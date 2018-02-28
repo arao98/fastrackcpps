@@ -1,9 +1,9 @@
 #include <stdio.h>
 void inputval(float *a,float *b)
 {
-    printf("enter first value:");
+    printf("Enter first value:");
     scanf("%f",a);
-    printf("enter second value:");
+    printf("Enter second value:");
     scanf("%f",b);
 }
 int ent_choice()
@@ -14,7 +14,7 @@ int ent_choice()
     scanf("%d",&choice);
     return choice;
 }
-float calc(float *a,float *b,int choice)
+float calc(float a,float b,int choice)
 {
     float ans;
     switch(choice)
@@ -40,7 +40,7 @@ int main()
     int ch;
     inputval(&x,&y);
     ch=ent_choice();
-    answer=calc(&x,&y,ch);
+    answer=calc(x,y,ch);
     disp(answer);
     return 0;
 }
