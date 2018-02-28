@@ -1,0 +1,42 @@
+#include <stdio.h>
+void input_mat(int x[20][20],int *r,int *c)
+{
+    int i,j;
+    printf("enter number of rows and columns for first matrix:");
+    scanf("%d%d",r,c);
+    printf("enter matrix\n");
+    for(i=0;i<*r;i++)
+     for(j=0;j<*c;j++)
+     {
+         printf("enter array element%d-%d:",i,j);
+         scanf("%d",&x[i][j]);
+     }
+}
+void findtrans(int x[20][20],int y[20][20],int r,int c)
+{
+    int i,j;
+    for(i=0;i<r;i++)
+       for(j=0;j<c;j++)
+         y[i][j]=x[j][i];
+}
+void disp_mat(int x[20][20],int r,int c)
+{
+    int i,j;
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+          printf("%d\t",x[i][j]);
+        printf("\n");
+    }
+}
+int main()
+{
+    int a[20][20],b[20][20],m,n;
+    input_mat(a,&m,&n);
+    findtrans(a,b,m,n);
+    printf("\noriginal matrix\n");
+    disp_mat(a,m,n);
+    printf("\ntranspose of matrix\n");
+    disp_mat(b,n,m);
+    return 0;
+}
