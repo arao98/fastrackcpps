@@ -1,0 +1,42 @@
+#include<stdio.h>
+void input_marks(int *m)
+{
+    printf("enter the marks:");
+    scanf("%d",m);
+}
+char calc_grade(int m)
+{
+    char g;
+    if(m>90)
+     g='O';
+    else 
+     if(m>80)
+      g='A';
+     else 
+      if(m>70)
+       g='B';
+      else 
+       if(m>60)
+        g='C';
+       else
+        if(m>50)
+         g='D';
+        else
+         if(m>40)
+          g='P';
+         else
+          g='F';
+        return g;
+}
+void disp(m,g)
+{
+    printf("the grade for marks-%d is %c",m,g);
+}
+int main()
+{
+    int marks;
+    char grade;
+    input_marks(&marks);
+    grade=calc_grade(marks);
+    disp(marks,grade);
+}
