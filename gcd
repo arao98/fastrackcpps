@@ -1,0 +1,41 @@
+#include<stdio.h>
+void input_num(int *x,int *y,int *z)
+{
+    printf("\nenter three numbers:");
+    scanf("%d%d%d",x,y,z);
+}
+int find_gcd(int x,int y,int z)
+{
+    int i,j,k,f=1,min,c;
+    if(x<y&&x<z)
+     min=x;
+    else 
+    if(y<x&&y<z)
+     min=y;
+    else
+     min=z;
+    for(c=min;c>=1;c--)
+    {
+        i=x%c;
+        j=y%c;
+        k=z%c;
+        if(i==0&&j==0&&k==0)
+        {
+            f=c;
+            break;
+        }
+    }
+    return f;
+}
+void disp(int x,int y,int z,int g)
+{
+    printf("\nthe greatest common divisor of %d,%d and %d is:%d",x,y,z,g);
+}
+int main()
+{
+    int a,b,c,gcd;
+    input_num(&a,&b,&c);
+    gcd=find_gcd(a,b,c);
+    disp(a,b,c,gcd);
+    return 0;
+}
