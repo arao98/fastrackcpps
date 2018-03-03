@@ -1,0 +1,75 @@
+#include <stdio.h>
+void inputarray(int *num,int array[*num],int *k)
+{
+    int i;
+    printf("Enter the value of num \n");
+    scanf("%d",num);
+    printf("Enter the elements one by one \n");
+    for (i=0;i<*num;i++)
+    {
+        scanf("%d",&array[i]);
+    }
+    printf("enter number to be searched:");
+    scanf("%d",k);
+}
+void printarray(int num,int array[num])
+{
+    int i;
+    for (i=0;i<num;i++)
+    {
+        printf("%d\n",array[i]);
+    }
+}
+void bubblesort(int num,int array[num])
+{
+    int i,j,temp;
+    for (i=0;i<num;i++)
+    {
+        for(j=0;j<(num-i-1);j++)
+        {
+            if (array[j]>array[j+1])
+            {
+                temp=array[j];
+                array[j]=array[j+1];
+                array[j+1]=temp;
+            }
+        }
+    }
+}
+int binarysearch(int num,int array[num],int k)
+{
+    int low=1,high=num,mid;
+    do
+    {
+        mid=(low+high)/2;
+        if (k<array[mid])
+            high=mid-1;
+        else if(k>array[mid])
+            low=mid+1;
+    }
+    while(k!=array[mid]&&low<=high);
+    if (k==array[mid])
+        return mid;
+    else 
+        return -1;
+}
+void print_search(int k,int p)
+{
+    if(p==-1)
+        printf("search failed\n");
+    else 
+        printf("element %d is found in position %d",k,p);
+}
+int main()
+{
+    int n,arr[n],key,pos;
+    inputarray(&n,arr,&key);
+    printf("Input array is \n");
+    printarray(n,arr);
+    bubblesort(n,arr);
+    printf("Sorted array is\n");
+    printarray(n,arr);
+    pos=binarysearch(n,arr,key);
+    print_search(key,pos);
+    return 0;
+}
