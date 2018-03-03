@@ -1,10 +1,10 @@
 #include<stdio.h>
-void fibbonacci(int pn)
+void fibbonacci(int pn,int f[pn])
 {
     int i,j,n1=0,n2=1,new;
     for(i=0;i<pn;i++)
     {
-       printf("%d\t",n1);
+       f[i]=n1;
        new=n1+n2;
        n1=n2;
        n2=new;
@@ -16,10 +16,17 @@ void entern(int *pn)
     printf("\nenter n:");
     scanf("%d",pn);
 }
+void disp(int pn,int f[pn])
+{
+    int i;
+    for(i=0;i<pn;i++)
+     printf("%d\t",f[i]);
+}
 int main()
 {
-    int n;
+    int n,f[n];
     entern(&n);
-    fibbonacci(n);
+    fibbonacci(n,f);
+    disp(n,f);
     return 0;
 }
