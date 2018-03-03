@@ -1,44 +1,33 @@
-
 #include <stdio.h>
-int z[20][20];
-void input_mat(int x[20][20],int y[20][20],int *r1,int *c1,int *r2,int *c2)
+void input_mat(int r,int c,int x[r][c])
 {
     int i,j;
-    printf("enter number of rows and columns for first matrix:");
-    scanf("%d%d",r1,c1);
-    printf("enter number of rows and columns for second matrix:");
-    scanf("%d%d",r2,c2);
+    printf("enter number of rows and columns for matrix:");
+    scanf("%d%d",&r,&c);
     printf("enter matrix 1:\n");
-    for(i=0;i<*r1;i++)
-     for(j=0;j<*c1;j++)
+    for(i=0;i<r;i++)
+     for(j=0;j<c;j++)
      {
          printf("enter array element%d-%d:",i,j);
-         scanf("%d",&x[i][j]);
-     }
-     printf("enter matrix 2:\n");
-     for(i=0;i<*r2;i++)
-      for(j=0;j<*c2;j++)
-     {
-         printf("enter array element%d-%d:",i,j);
-         scanf("%d",&y[i][j]);
+         scanf("%d",x[i][j]);
      }
 }
-void prod_mat(int x[20][20],int y[20][20],int z[20][20],int r1,int c1,int r2,int c2)
+void multipymatrix(int m, int n, int x[m][n], int p,int q, int y[p][q], int z[m][q])
 {
     int i,j,k,sum=0;
-    if(c1==r2)
+    if(n==p)
     {
-        for(i=0;i<r1;i++)
+        for(i=0;i<m;i++)
         {
-           for(j=0;j<c2;j++)
+           for(j=0;j<q;j++)
            {
-              for(k=0;k<c1;k++)
+              for(k=0;k<n;k++)
               z[i][j]+=x[i][k]*y[k][j];
            }
         }
     }
 }
-void disp_mat(int z[20][20],int r,int c)
+void disp_mat(int r,int c,int z[r][c])
 {
     int i,j;
     for(i=0;i<r;i++)
@@ -50,14 +39,17 @@ void disp_mat(int z[20][20],int r,int c)
 }
 int main()
 {
-    int a[20][20],b[20][20],m,n,p,q;
-    input_mat(a,b,&m,&n,&p,&q);
-    prod_mat(a,b,z,m,n,p,q);
+    int m,n,p,q,a[m][n],b[p][q],c[m][q];
+    printf("enter matrix 1:\n");
+    input_mat(m,n,a);
+    input_mat(p,q,b);
+    printf("enter matrix 2:\n");
+    multipymatrix(m,n,a,p,q,b,c);
     printf("\nmatrix 1:\n");
-    disp_mat(a,m,n);
+    disp_mat(m,n,a);
     printf("\nmatrix 2:\n");
-    disp_mat(b,p,q);
+    disp_mat(p,q,b);
     printf("\nproduct matrix :\n");
-    disp_mat(z,m,q);
+    disp_mat(m,q,c);
     return 0;
 }
