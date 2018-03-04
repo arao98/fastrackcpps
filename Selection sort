@@ -1,5 +1,5 @@
 #include <stdio.h>
-void inputarr(int *arr[20], int *n)
+void inputarr(int *n,int arr[*n])
 {
  int i;
  printf("Enter n:");
@@ -11,7 +11,7 @@ void inputarr(int *arr[20], int *n)
    scanf("%d",arr[i]);
   }
 }
-void selectionsort(int arr[20],int n)
+void selectionsort(int n,int arr[n])
 {
   int i,temp;
   for(i=0;i<n;i++)
@@ -24,7 +24,7 @@ void selectionsort(int arr[20],int n)
      }
   }
 }
-void disparr(int arr[20],int n)
+void disparr(int n,int arr[n])
 {
  int i;
  for(i=0;i<n;i++)
@@ -32,12 +32,12 @@ void disparr(int arr[20],int n)
 }
 int main()
 {
-    int array[20], num;
-    inputarr(&array,&num);
+    int num,array[num];
+    inputarr(&num,array);
     printf("Before sorting:\n");
-    disparr(array,num);
-    selectionsort(array,num);
+    disparr(num,array);
+    selectionsort(num,array);
     printf("After sorting:\n");
-    disparr(array,num);
+    disparr(num,array);
     return 0;
  }   
