@@ -1,0 +1,43 @@
+#include <stdio.h>
+void inputarr(int *arr[20], int *n)
+{
+ int i;
+ printf("Enter n:");
+ scanf("%d",n);
+ printf("Enter %d elements of the array:",*n);
+  for(i=0;i<*n;++i)
+  {
+   printf("%d:",i);
+   scanf("%d",arr[i]);
+  }
+}
+void selectionsort(int arr[20],int n)
+{
+  int i,temp;
+  for(i=0;i<n;i++)
+  {
+    if(arr[i]>arr[i+1])
+    {
+     temp = arr[i];
+     arr[i]=arr[i+1];
+     arr[i+1]=temp;
+     }
+  }
+}
+void disparr(int arr[20],int n)
+{
+ int i;
+ for(i=0;i<n;i++)
+  printf("%d\t",arr[i]);
+}
+int main()
+{
+    int array[20], num;
+    inputarr(&array,&num);
+    printf("Before sorting:\n");
+    disparr(array,num);
+    selectionsort(array,num);
+    printf("After sorting:\n");
+    disparr(array,num);
+    return 0;
+ }   
