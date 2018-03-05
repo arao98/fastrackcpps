@@ -1,0 +1,53 @@
+#include <stdio.h>
+struct student
+{
+    int rno;
+    char name[15];
+    char dept[10];
+    int marks;
+    char grade;
+};
+void enter_n(int *n)
+{
+    printf("enter number of students:");
+    scanf("%d",n);
+}
+void enterdetails(int n,struct student st[n])
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("\nenter details of student-%d:",i);
+        printf("\nname:");
+        scanf("%s",st[i].name);
+        printf("\nrollno:");
+        scanf("%d",st[i].rno);
+        printf("\ndepartment:");
+        scanf("%s",st[i].dept);
+        printf("\nmarks:");
+        scanf("%d",st[i].marks);
+        printf("\ngrade:");
+        scanf("%c",st[i].grade);
+    }
+}
+void displaydetails(int n,struct student st[n])
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("\nname:%s",st[i].name);
+        printf("\nrollno:%d",st[i].rno);
+        printf("\ndepartment:%s",st[i].dept);
+        printf("\nmarks:%d",st[i].marks);
+        printf("\ngrade:%c",st[i].grade);
+    }
+}
+int main()
+{
+    int n;
+    struct student st[n];
+    enter_n(&n);
+    enterdetails(n,st);
+    displaydetails(n,st);
+    return 0;
+}
