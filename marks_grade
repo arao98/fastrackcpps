@@ -8,25 +8,20 @@ char calc_grade(int m)
 {
     char g;
     if(m>90)
-     g='O';
-    else 
-     if(m>80)
-      g='A';
-     else 
-      if(m>70)
+       g='O';
+    else if(m>80)
+       g='A';
+    else if(m>70)
        g='B';
-      else 
-       if(m>60)
-        g='C';
-       else
-        if(m>50)
-         g='D';
-        else
-         if(m>40)
-          g='P';
-         else
-          g='F';
-        return g;
+    else if(m>60)
+       g='C';
+    else if(m>50)
+       g='D';
+    else if(m>40)
+       g='P';
+    else
+       g='F';
+    return g;
 }
 void disp(m,g)
 {
