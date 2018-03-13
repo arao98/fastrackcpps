@@ -9,7 +9,7 @@ void inputval(float *a,float *b)
 int ent_choice()
 {
     int choice;
-    printf("operator:\n1 for addition\n2 for subtraction\n3 for multiplication\n4 for division\n");
+    printf("operator:\n1 for addition\n2 for subtraction\n3 for multiplication\n4 for division\n5 to exit");
     printf("enter your choice:");
     scanf("%d",&choice);
     return choice;
@@ -38,9 +38,15 @@ int main()
 {
     float x,y,answer;
     int ch;
-    inputval(&x,&y);
-    ch=ent_choice();
-    answer=calc(x,y,ch);
-    disp(answer);
+    do
+    {
+       ch=ent_choice();
+       if(ch==5)
+          break;
+       inputval(&x,&y);
+       answer=calc(x,y,ch);
+       disp(answer);
+     }
+     while(ch!=5)
     return 0;
 }
