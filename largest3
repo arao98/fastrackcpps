@@ -3,19 +3,14 @@
 float largest(float x,float y,float z)
 {
 float l;
-if((x>y)&&(x>z))
-l=x;
-else if((y>x)&&(y>z))
-l=y;
-else
-l=z;
+   l=((x>y)?(x>z?x:z):(y>z?y:z)); 
 return l;
 }
 /*to read the three numbers*/
 void getvalues(float *x,float *y,float *z)
 {
     printf("enter 3 numbers:");
-    scanf("%f%f%f",&a,&b,&c);
+    scanf("%f%f%f",x,y,z);
 }
 int main()
 {
