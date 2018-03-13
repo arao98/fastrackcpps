@@ -1,53 +1,41 @@
 #include<stdio.h>
-int matrix_add(int a[15][15],int b[15][15],int i,int j)
+int matrix_add(int m,int n,int a[m][n],int b[m][n],int s[m][n])
 {
-    int s;
-    s=a[i][j]+b[i][j];
-    return s;
+    int i,j;
+     for(i=0;i<m;i++)
+     {
+        for(j=0;j<n;j++)
+        {
+            s[i][j]=a[i][j]+b[i][j];
+        }
+     }
 }
-void enter_mat(int a[15][15],int pm,int pn)
+void enter_mat(int m,int n,int a[m][n])
 {
     int i,j;
     printf("\nenter array :");
-    for(i=0;i<pm;i++)
-        for(j=0;j<pn;j++)
+    for(i=0;i<m;i++)
     {
+        for(j=0;j<n;j++)
+        {
         printf("\nenter element %d%d:",i,j);
         scanf("%d",&a[i][j]);
+        }
     }
 }
-void disp_mat(int a[15][15],int b[15][15],int c[15][15],int pm,int pn)
+void disp_mat(int m,int n,int a[m][n])
 {
    int i,j;
-   printf("\narray 1:\n");
-    for(i=0;i<pm;i++)
+   
+    for(i=0;i<m;i++)
     {
 
-        for(j=0;j<pn;j++)
+        for(j=0;j<n;j++)
         {
-            printf("\t%d:",a[i][j]);
+            printf("\t%d",a[i][j]);
         }
         printf("\n");
     }
-    printf("\narray 2:\n");
-    for(i=0;i<pm;i++)
-    {
-        for(j=0;j<pn;j++)
-        {
-            printf("\t%d:",b[i][j]);
-        }
-        printf("\n");
-    }
-    printf("\nsum:\n");
-    for(i=0;i<pm;i++)
-    {
-        for(j=0;j<pn;j++)
-        {
-            printf("\t%d:",c[i][j]);
-        }
-        printf("\n");
-    }
-
 }
 int main()
 {
@@ -56,11 +44,14 @@ int main()
     scanf("%d",&m);
     printf("\nenter number of columns:");
     scanf("%d",&n);
-    enter_mat(x,m,n);
-    enter_mat(y,m,n);
-    for(i=0;i<m;i++)
-        for(j=0;j<n;j++)
-            sum[i][j]=matrix_add(&x,&y,i,j);
-    disp_mat(x,y,sum,m,n);
+    enter_mat(m,n,x);
+    enter_mat(m,n,y);
+    matrix_add(m,n,x,y,sum);
+    printf("\nmatrix 1:\n");
+    disp_mat(m,n,x);
+    printf("\nmatrix 2:\n");
+    disp_mat(m,n,y);
+    printf("\nsum matrix:\n");
+    disp_mat(m,n,sum); 
     return 0;
 }
