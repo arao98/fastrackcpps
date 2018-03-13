@@ -1,19 +1,19 @@
 #include <stdio.h>
-int linear_search(int *a,int pn,int *pelem)
+int linear_search(int n,int a[n],int pelem)
 {
     int i,p=-1;
-    for(i=0;i<pn;i++)
+    for(i=0;i<n;i++)
     {
-        if(a[i]==*pelem)
+        if(a[i]==pelem)
             p=i;
     }
     return p;
 }
-void enter_arr(int *a,int pn,int *pelem)
+void enter_arr(int n,int a[n],int *pelem)
 {
     int i;
     printf("\nenter array elements:");
-    for(i=0;i<pn;i++)
+    for(i=0;i<n;i++)
     {
         printf("\nenter element %d:",i);
         scanf("%d",&a[i]);
@@ -21,7 +21,7 @@ void enter_arr(int *a,int pn,int *pelem)
     printf("\nenter element to be searched:");
     scanf("%d",pelem);
 }
-void disp(int *a,int pn,int *pelem,int *p)
+void disp(int n,int a[n],int pelem,int p)
 {
     int i;
     if(p==-1)
@@ -29,21 +29,21 @@ void disp(int *a,int pn,int *pelem,int *p)
     else
     {
         printf("\nthe given array:");
-        for(i=0;i<pn;i++)
+        for(i=0;i<n;i++)
         {
             printf("%d\t",a[i]);
         }
     }
-    printf("\nelement searched:%d",*pelem);
-    printf("\nat position:%d",*p);
+    printf("\nelement searched:%d",pelem);
+    printf("\nat position:%d",p);
 }
 int main()
 {
-    int pos,arr[20],n,elem;
+    int pos,n,arr[n],elem;
     printf("\nenter number of elements:");
     scanf("%d",&n);
-    enter_arr(&arr,n,&elem);
-    pos=linear_search(&arr,n,&elem);
-    disp(&arr,n,&elem,&pos);
+    enter_arr(n,arr,&elem);
+    pos=linear_search(n,arr,elem);
+    disp(n,arr,elem,pos);
     return 0;
 }
