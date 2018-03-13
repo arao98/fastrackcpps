@@ -7,7 +7,7 @@ void input_n(int *num)
 int factorial(int num)
 {
     int i,f=1;
-    for(i=num;i>0;i--)
+    for(i=num;i>1;i--)
      f=f*i;
     return f;
 }
