@@ -56,7 +56,7 @@ int main()
            break;
     case 1: printf("roots are real and distinct:%fand%f",r1.real,r2.real);
            break;
-    case 2: printf("roots are imaginagry:%f+%fi and%f-%fi",r1.real,r1.imag,r2.real,r2.imag);
+    case 2: printf("roots are imaginagry:%f+%fi and%f+%fi",r1.real,r1.imag,r2.real,r2.imag);
             break;
     }
     return 0;
