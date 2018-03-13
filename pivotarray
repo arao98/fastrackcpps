@@ -27,7 +27,7 @@ void pivot(int n,int a[n])
     int i,p=0,temp;
     for(i=1;i<n;i++)
     {
-        if(a[p]>a[i])
+        if(a[i]<=a[p])
         {
             temp=p;
             p=i;
