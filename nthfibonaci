@@ -1,0 +1,36 @@
+#include<stdio.h>
+int fibonacci()
+{
+    static int count=0;
+    count++;
+    int i,n1=0,n2=1,new,f;
+    for(i=0;i<count;i++)
+    {
+       f=n1;
+       new=n1+n2;
+       n1=n2;
+       n2=new;
+    }
+    return f;
+}
+void entern(int *pn)
+{
+    printf("\nenter n:");
+    scanf("%d",pn);
+}
+void disp(int pn,int f)
+{
+    int i;
+    printf("%dth fibonacci number is:%d\n",pn,f);
+}
+int main()
+{
+    int i,n,f;
+    entern(&n);
+    for(i=0;i<n;i++)
+    {
+        f=fibonacci();
+    }
+    disp(n,f);
+    return 0;
+}
