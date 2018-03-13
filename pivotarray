@@ -1,0 +1,49 @@
+#include<stdio.h>
+void input_n(int *n)
+{
+    printf("enter number of array elements:");
+    scanf("%d",n);
+}
+void input_arr(int n,int a[n])
+{
+    int i;
+    printf("enter array elements:\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d:",i);
+        scanf("%d",&a[i]);
+    }
+}
+disp_arr(int n,int a[n])
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("\t%d",a[i]);
+    }
+}
+void pivot(int n,int a[n])
+{
+    int i,p=0,temp;
+    for(i=1;i<n;i++)
+    {
+        if(a[p]>a[i])
+        {
+            temp=p;
+            p=i;
+            i=temp;
+        }
+    }
+}
+int main()
+{
+    int num,arr[num];
+    input_n(&num);
+    input_arr(num,arr);
+    printf("\noriginal array:");
+    disp_arr(num,arr);
+    pivot(num,arr);
+    printf("\noutput array:");
+    disp_arr(num,arr);
+    return 0;
+}
