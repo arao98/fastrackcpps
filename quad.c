@@ -32,7 +32,8 @@ int findroots(float a, float b, float c, struct complex *r1,struct complex *r2)
     else
     {
         r1->real=r2->real=-b/(2*a);
-        r1->imag=r2->imag=sqrt(-d)/(2*a);
+        r1->imag=sqrt(-d)/(2*a);
+        r2->imag=-sqrt(-d)/(2*a);
         return 2;
     }
    }
