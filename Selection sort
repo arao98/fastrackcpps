@@ -4,7 +4,7 @@ void input_n(int *n)
     printf("enter the number of array elements:");
     scanf("%d",n);
 }
-void inputarr(int n,int arr[*n])
+void inputarr(int n,int arr[n])
 {
     int i;
     printf("Enter %d elements of the array:",n);
