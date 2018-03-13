@@ -1,39 +1,43 @@
 #include <stdio.h>
-void inputarr(int *n,int arr[*n])
+void input_n(int *n)
 {
- int i;
- printf("Enter n:");
- scanf("%d",n);
- printf("Enter %d elements of the array:",*n);
-  for(i=0;i<*n;++i)
-  {
-   printf("%d:",i);
-   scanf("%d",&arr[i]);
-  }
+    printf("enter the number of array elements:");
+    scanf("%d",n);
+}
+void inputarr(int n,int arr[*n])
+{
+    int i;
+    printf("Enter %d elements of the array:",n);
+    for(i=0;i<n;++i)
+    {
+       printf("%d:",i);
+       scanf("%d",&arr[i]);
+    }
 }
 void selectionsort(int n,int arr[n])
 {
-  int i,temp;
-  for(i=0;i<n;i++)
-  {
-    if(arr[i]>arr[i+1])
+    int i,temp;
+    for(i=0;i<n;i++)
     {
-     temp = arr[i];
-     arr[i]=arr[i+1];
-     arr[i+1]=temp;
-     }
-  }
+       if(arr[i]>arr[i+1])
+       {
+          temp = arr[i];
+          arr[i]=arr[i+1];
+          arr[i+1]=temp;
+       }
+    }
 }
 void disparr(int n,int arr[n])
 {
- int i;
- for(i=0;i<n;i++)
-  printf("%d\t",arr[i]);
+    int i;
+    for(i=0;i<n;i++)
+    printf("%d\t",arr[i]);
 }
 int main()
 {
     int num,array[num];
-    inputarr(&num,array);
+    input_n(&num);
+    inputarr(num,array);
     printf("Before sorting:\n");
     disparr(num,array);
     selectionsort(num,array);
