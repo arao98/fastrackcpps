@@ -1,11 +1,14 @@
 #include <stdio.h>
-void inputarray(int *num,int array[*num],int *k)
+void input_n(int *num)
+{
+    printf("enter the number of array elements:");
+    scanf("%d",num);
+}
+void inputarray(int num,int array[*num],int *k)
 {
     int i;
-    printf("Enter the value of num \n");
-    scanf("%d",num);
     printf("Enter the elements\n");
-    for (i=0;i<*num;i++)
+    for (i=0;i<num;i++)
     {
         scanf("%d",&array[i]);
     }
@@ -63,7 +66,8 @@ void print_search(int k,int p)
 int main()
 {
     int n,arr[n],key,pos;
-    inputarray(&n,arr,&key);
+    input_n(&n);
+    inputarray(n,arr,&key);
     printf("Input array is \n");
     printarray(n,arr);
     bubblesort(n,arr);
