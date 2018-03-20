@@ -25,21 +25,25 @@ disp_arr(int n,int a[n])
 void pivot(int n,int a[n])
 {
     int i,p=0,temp,high=n-1;
-    for(i=1;i<n;i++)
+    while(i<n)
     {
         if(a[i]<=a[p])
         {
             temp=a[p];
             a[p]=a[i];
             a[i]=temp;
+            i++;
         }
         else
-        {
+        {  
+            while(a[high]>a[p])
+            {
+               high--;
+            }
             temp=a[high];
             a[high]=a[i];
             a[i]=temp;
-            high--;
-            i--;
+            high--; 
         }
     }
 }
