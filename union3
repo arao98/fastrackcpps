@@ -1,0 +1,13 @@
+#include <stdio.h>
+union test {
+    unsigned int a;
+    unsigned char b[4];
+};
+
+int main()
+{
+    union test t;
+    t.a=0xFFABCCDD;
+    printf("%x %x %x %x %x\n",t.a,t.b[0],t.b[1],t.b[2],t.b[3]);
+    return 0;
+}
