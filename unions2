@@ -1,0 +1,42 @@
+#include <stdio.h>
+struct managersalary
+{
+    float basic;
+    float incentives;
+    float healthinsure;
+};
+struct laborersalary
+{
+    float basic;
+    float wages;
+};
+struct employee
+{
+    char name[50];
+    int type;
+    union salarystructure
+    {
+        struct managersalary m;
+        struct laborersalary l;
+    }salary;
+};
+
+
+struct employeest
+{
+    char name[50];
+    int type;
+     
+    struct salarystructures
+    {
+        struct managersalary m1;
+        struct laborersalary l1;
+    }salary1;
+};
+
+int main()
+{
+    printf("%d %d\n",sizeof(struct employee),sizeof(struct employeest));
+
+    return 0;
+}
