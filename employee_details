@@ -1,0 +1,83 @@
+#include<stdio.h>
+struct managersalary
+{
+    float basic;
+    float incentives;
+    float healthinsure;
+};
+struct laborersalary
+{
+    float basic;
+    float wages;
+};
+struct employee
+{
+    char name[50];
+    int type;
+    union salarystructure
+    {
+        struct managersalary m;
+        struct laborersalary l;
+    }salary;
+};
+void get_n(int *n)
+{
+    printf("enter number of employees:");
+    scanf("%d",n);
+}
+void get_details_of_employees(int n, struct employee emp[n])
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+    printf("enter employee name:");
+    scanf("%s",emp[i].name);
+    printf("enter employee type(0 for manager,1 for laborer:");
+    scanf("%d",&emp[i].type);
+    if(emp[i].type==0)
+    {
+        printf("enter the basic,incentives and health insurance of the salary component:");
+        scanf("%f%f%f",&emp[i].salary.m.basic,&emp[i].salary.m.incentives,&emp[i].salary.m.healthinsure);
+        
+    }
+    else if(emp[i].type==1)
+    {
+        printf("enter the basic,dailywages components of the salary component:");
+        scanf("%f%f",&emp[i].salary.l.basic,&emp[i].salary.l.wages);
+    }
+    }
+}
+void show_details_of_employees(int n,struct employee emp[n])
+{
+    int i;
+    printf("employee's details:\n");
+    for(i=0;i<n;i++)
+    {
+        printf("name:%s\n",emp[i].name);
+        if(emp[i].type==0)
+        {
+            printf("type: Manager\n");
+            printf("salary components:\n");
+            printf("basic:%f\n",emp[i].salary.m.basic);
+            printf("incentives:%f\n",emp[i].salary.m.incentives);
+            printf("health insurance:%f\n",emp[i].salary.m.healthinsure);
+        }
+        else if(emp[i].type==1)
+        {
+            printf("type: laborer\n");
+            printf("salary components:\n");
+            printf("basic:%f\n",emp[i].salary.l.basic);
+            printf("dailywage:%f\n",emp[i].salary.l.wages);
+        }
+        
+    }
+}
+int main()
+{
+    int n;
+    get_n(&n);
+    struct employee emp[n];
+    get_details_of_employees(n,emp);
+    show_details_of_employees(n,emp);
+    return 0;
+}
