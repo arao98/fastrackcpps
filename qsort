@@ -1,0 +1,57 @@
+#include <stdlib.h>
+void input_names(char **name)
+{
+    for(int i=0;i<5;i++)
+    {
+       printf("Next name :");
+       scanf("%s",name[i]);
+    }
+}
+void sort_names(char **name)
+{
+    int i,j;
+    char temp[100];
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<5-i-1;j++)
+        {
+        if(strcmp(name[j],name[j+1])>0)
+        {
+            strcpy(temp,name[j]);
+            strcpy(name[j],name[j+1]);
+            strcpy(name[j+1],temp);
+        }
+        }
+    }
+}
+static int cmp_names(void *p1,void *p2)
+{
+    printf("%p %s %p %s\n",p1,p1,p2,p2);
+    return strcmp(*(char **)p1,*(char **)p2);
+}
+void display_names(char **name)
+{
+    for(int i=0;i<5;i++) 
+    {
+       printf("%s\n",name[i]);
+    }
+    
+}
+int main()
+{
+    char **name;
+    name=(char **)malloc(5*sizeof(char *));
+    for(int i=0;i<5;i++)
+    {
+       name[i]=(char *)malloc(80 * sizeof(char));
+    }
+   input_names(name);
+   qsort(name,5,80 * sizeof(char),cmp_names);
+   display_names(name);
+  
+   for(int i;i<5;i++) 
+   {
+       free(name[i]);
+   }
+   free(name);
+}
